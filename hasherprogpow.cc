@@ -19,7 +19,7 @@ using namespace v8;
 NAN_METHOD(hash_one) {
 
         if (info.Length() < 3)
-            return THROW_ERROR_EXCEPTION("hasher-kawpow.hash_one - 3 arguments expected.");
+            return THROW_ERROR_EXCEPTION("hasher-progpow-firo.hash_one - 3 arguments expected.");
 
         const ethash::hash256* header_hash_ptr = (ethash::hash256*)Buffer::Data(Nan::To<v8::Object>(info[0]).ToLocalChecked());
         uint64_t* nonce64_ptr = (uint64_t*)Buffer::Data(Nan::To<v8::Object>(info[1]).ToLocalChecked());
@@ -41,7 +41,7 @@ NAN_METHOD(hash_one) {
 NAN_METHOD(verify) {
 
         if (info.Length() < 5)
-            return THROW_ERROR_EXCEPTION("hasher-kawpow.verify - 5 arguments expected.");
+            return THROW_ERROR_EXCEPTION("hasher-progpow-firo.verify - 5 arguments expected.");
 
         const ethash::hash256* header_hash_ptr = (ethash::hash256*)Buffer::Data(Nan::To<v8::Object>(info[0]).ToLocalChecked());
         uint64_t* nonce64_ptr = (uint64_t*)Buffer::Data(Nan::To<v8::Object>(info[1]).ToLocalChecked());
@@ -71,4 +71,4 @@ NAN_MODULE_INIT(init) {
         Nan::Set(target, Nan::New("verify").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(verify)).ToLocalChecked());
 }
 
-NODE_MODULE(hashermtp, init)
+NODE_MODULE(hasherprogpow, init)

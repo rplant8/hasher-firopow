@@ -18,9 +18,10 @@ using namespace ethash;  // Include ethash namespace.
 /// https://github.com/ifdefelse/ProgPOW.
 constexpr auto revision = "0.9.4";
 
-constexpr int period_length = 3;
+constexpr int period_length = 1;
 constexpr uint32_t num_regs = 32;
 constexpr size_t num_lanes = 16;
+constexpr uint32_t num_rounds = 64;
 constexpr int num_cache_accesses = 11;
 constexpr int num_math_operations = 18;
 constexpr size_t l1_cache_size = 16 * 1024;

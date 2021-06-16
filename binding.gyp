@@ -11,7 +11,7 @@
                 "src/keccak/keccakf1600.c",
                 "src/uint256.cpp",
                 "src/utilstrencodings.cpp",
-                "hasherkawpow.cc"
+                "hasherprogpow.cc"
             ],
             "include_dirs": [
                 ".",
