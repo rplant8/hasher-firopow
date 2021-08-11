@@ -22,7 +22,7 @@ namespace ethash
 constexpr static int light_cache_init_size = 1 << 24;
 constexpr static int light_cache_growth = 1 << 17;
 constexpr static int light_cache_rounds = 3;
-constexpr static int full_dataset_init_size = 1 << 30;
+constexpr static int full_dataset_init_size = (1 << 30) + (1 << 29); // 1.5GB == 1536 MB
 constexpr static int full_dataset_growth = 1 << 23;
 constexpr static int full_dataset_item_parents = 512;
 
