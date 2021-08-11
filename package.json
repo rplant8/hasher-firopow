@@ -1,6 +1,6 @@
 {
   "name": "@mintpond/hasher-firopow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Firo Progpow algorithm hashing and verification functions for NodeJS.",
   "main": "index.js",
   "author": "JCThePants",
