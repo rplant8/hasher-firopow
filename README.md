@@ -14,7 +14,7 @@ __Install as Dependency in NodeJS Project__
 # Install from Github git package
 
 sudo apt-get install build-essential
-npm install mintpond/hasher-progpow-firo --save
+npm install mintpond/hasher-firopow --save
 ```
 -or-
 ```bash
@@ -24,7 +24,7 @@ sudo apt-get install build-essential
 npm config set @mintpond:registry https://npm.pkg.github.com/mintpond
 npm config set //npm.pkg.github.com/:_authToken <MY_GITHUB_AUTH_TOKEN>
 
-npm install @mintpond/hasher-progpow-firo@1.0.0 --save
+npm install @mintpond/hasher-firopow@0.1.0 --save
 ```
 
 __Install & Test__
@@ -33,11 +33,11 @@ __Install & Test__
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install nodejs -y
 
-# Download hasher-progpow-firo
-git clone https://github.com/MintPond/hasher-progpow-firo
+# Download hasher-firopow
+git clone https://github.com/MintPond/hasher-firopow
 
 # build
-cd hasher-progpow-firo
+cd hasher-firopow
 sudo apt-get install build-essential
 npm install
 
@@ -48,7 +48,7 @@ npm test
 ## Usage ##
 __Hash__
 ```javascript
-const progpow = require('@mintpond/hasher-progpow-firo');
+const progpow = require('@mintpond/hasher-firopow');
 
 const mixOutBuf = Buffer.alloc(32);
 const hashOutBuf = Buffer.alloc(32);
@@ -75,7 +75,7 @@ console.log(hashOutBuf.toString('hex'));
 
 __Verify__
 ```javascript
-const progpow = require('@mintpond/hasher-progpow-firo');
+const progpow = require('@mintpond/hasher-firopow');
 
 const hashValueOut = Buffer.alloc(32);
 
