@@ -10,8 +10,8 @@ const headerHashBuf = Buffer.from('63543d3913fe56e6720c5e61e8d208d05582875822628
 const nonceBuf = hexToLE('88a23b0033eb959b');
 const blockHeight = 262523;
 
-const expectedMixHash = '6bf2c9bce65047a5cc337d181e8c7141d3204587fde441fa8152ddece925db6e';
-const expectedHash = '2021a1a9bb6e3a2a26ea5546c132b8410352caabbdf9337b3f9852cf7568f3b7';
+const expectedMixHash = '3414b7c3105a45426e56e6f4c800f4358334cc7df74d98141bb887185166436d';
+const expectedHash = '717e7b6181ac3feb159059eca5080039df5676190a5f80a44d40e7c37d364126';
 
 // Hash data
 const hashResult = hash(headerHashBuf, nonceBuf, blockHeight);
