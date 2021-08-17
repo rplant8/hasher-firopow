@@ -16,8 +16,13 @@ const expectedHash = '717e7b6181ac3feb159059eca5080039df5676190a5f80a44d40e7c37d
 // Hash data
 const hashResult = hash(headerHashBuf, nonceBuf, blockHeight);
 
+// Verify mix hash mismatch detection
+verifyMixHashDetect(hashResult.mixHashBuf);
+
 // Verify mix hash
 verify(hashResult.mixHashBuf, hashResult.hash, 1000);
+
+
 
 console.log('Test completed successfully.');
 
@@ -72,6 +77,27 @@ function verify(mixHashBuf, expectedHash, iterations) {
 
     const verifyPs = iterations / (endTimeMs - startTimeMs) * 1000;
     console.log(`verify/sec = ${verifyPs}\n`);
+}
+
+
+function verifyMixHashDetect(mixHashBuf) {
+
+    const mixHashMisBuf = Buffer.alloc(mixHashBuf.length);
+    mixHashBuf.copy(mixHashMisBuf);
+
+    mixHashMisBuf[0]++;
+
+    console.log(`Verifying mix hash mismatch detection`);
+    console.log(`mixHashBuf: ${mixHashBuf.toString('hex')}`);
+    console.log(`mixHashMisBuf: ${mixHashMisBuf.toString('hex')}`);
+
+    const verifyHashOutBuf = Buffer.alloc(32);
+
+    const isValid = progpow.verify(headerHashBuf, nonceBuf, blockHeight, mixHashMisBuf, verifyHashOutBuf);
+    if (isValid)
+        throw new Error('Verification failed to detect mixHash mismatch.');
+
+    console.log('Mismatch successfully detected.')
 }
 
 
